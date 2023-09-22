@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Edição de Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Editar Cliente</span>
+                <h2>Editar Cliente</h2>
+            </div>
+
+            <div class="row" data-aos="fade-up">
+                <div class="col-lg-12">
+                    <div class="info-box mb-4">
+                        <i class='bx bxs-user'></i>
+                        <h3>Cliente Atual</h3>
+                        <p><b>Nome:</b>  @Model.Nome &emsp;</p>
+                        <p><b>Nif:</b>  @Model.Nif &emsp;</p>
+                        <p><b>Contacto:</b>  @Model.Contacto &emsp;</p>
+                        <p><b>Morada:</b>  @Model.Morada &emsp;</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" data-aos="fade-up">
+
+                <div class="col-lg-12">
+                    <form method="post" action="/Cliente/Editar">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="Nome" class="form-control" placeholder="Nome" value="@Model.Nome" />
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="text" name="Nif" class="form-control" placeholder="Nif" value="@Model.Nif" />
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="text" name="Contacto" class="form-control" placeholder="Contacto" value="@Model.Contacto" />
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="text" name="Morada" class="form-control" placeholder="Morada" value="@Model.Morada" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <input type="submit" name="enviar" value="Registar Edição" style="background: #576880; border: 0; padding: 10px 24px; color: #fff; transition: 0.7s;" />
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->

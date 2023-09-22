@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Consulta de Funcionário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+        <div class="row gy-12">
+
+            <div class="col-lg-12">
+                <div class="portfolio-info">
+                    <h3>Informação do Funcionário&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bxs-user-detail'></i></h3>
+                    <ul>
+                        <li><strong>Nome</strong>: @Model.Nome</li>
+                        <li><strong>Nif</strong>: @Model.Nif</li>
+                        <li><strong>Contacto</strong>: @Model.Contacto</li>
+                        <li><strong>Nr Funcionário</strong>: @Model.NrFuncionario</li>
+                    </ul>
+                </div>
+                <br><br>
+                <div class="text-center">
+                    <form action="/Funcionario/Editar/@Model.Id">
+                        <input type="submit" name="editarFuncionario" value="Editar Funcionário" style="background: #576880; border: 0; padding: 10px 24px; color: #fff; transition: 0.7s;" />
+                    </form><br>
+                    <form action="/Funcionario/Eliminar/@Model.Id">
+                        <input type="submit" name="eliminarFuncionario" value="Eliminar Funcionário" style="background: #576880; border: 0; padding: 10px 24px; color: #fff; transition: 0.7s;" />
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Details Section -->

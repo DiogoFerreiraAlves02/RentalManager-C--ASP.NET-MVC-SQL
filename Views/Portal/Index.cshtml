@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewData["Title"] = "Bem-Vindo à INFORENT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
+        <h1>Welcome to Inforent</h1>
+        <h2>Your computer equipment rental management panel</h2>
+        @if (ViewBag.ContaAtiva.NivelAcesso > 0) {
+            <a href="/Aluguer/Listar" class="btn-get-started scrollto">Lista de Alugueres</a>
+            <a href="/Cliente/Listar" class="btn-get-started scrollto" style="margin-left:3%">Lista de Clientes</a><br /><br />
+            <a href="/Funcionario/Listar" class="btn-get-started scrollto">Lista de Funcionários</a>
+            <a href="/Produto/Listar" class="btn-get-started scrollto" style="margin-left:3%">Lista de Produtos</a>
+        }
+    </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="box">
+                        <span>01</span>
+                        <h4>Liste</h4>
+                        <p>Possibilidade de listar todos os alugueres registados</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+                    <div class="box">
+                        <span>02</span>
+                        <h4>Crie</h4>
+                        <p>Possibilidade de criar/registar novos alugueres</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="box">
+                        <span>03</span>
+                        <h4>Edite</h4>
+                        <p>Possibilidade de editar qualquer aluguer realizado</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300" style="align-items: center;">
+                    <div class="box">
+                        <span>&nbsp;</span>
+                        <h4>&emsp;&emsp;</h4>
+                        <p><br><br></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300" style="align-items: center;">
+                    <div class="box">
+                        <span>04</span>
+                        <h4>Elimine</h4>
+                        <p>Possibilidade de elimiar qualquer aluguer realizado que já não seja necessário</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300" style="align-items: center;">
+                    <div class="box">
+                        <span>&nbsp;</span>
+                        <h4>&emsp;&emsp;</h4>
+                        <p><br><br></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Why Us Section -->
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Desenvolvedor</span>
+                <h2>Desenvolvedor</h2>
+            </div>
+
+            <div class="row" style="justify-content: center;">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
+                    <div class="member">
+                        <img src="/img/team/team-2.jpg" alt="">
+                        <h4>Diogo Alves</h4>
+                        <span>Aluno de Licenciatura em Engenharia Informática</span>
+                        <p>
+                            Desenvolvedor da solução de gestão de alugueres de material Informático
+                        </p>
+                        <div class="social">
+                            <a href="https://twitter.com/diogoalves_02" target="_blank"><i class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/diogo.alves.71619533/" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/diogoalves_02/" target="_blank"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/diogoalves2002/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Team Section -->
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+        <div class="container" data-aos="zoom-in">
+
+            <div class="row d-flex align-items-center">
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="/img/clients/client-1.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="/img/clients/client-2.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="/img/clients/client-1.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="/img/clients/client-2.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="/img/clients/client-1.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="/img/clients/client-2.png" class="img-fluid" alt="">
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Clients Section -->
+
+</main><!-- End #main -->

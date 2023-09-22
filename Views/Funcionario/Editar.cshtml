@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Edição de Funcionário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Editar Funcionário</span>
+                <h2>Editar Funcionário</h2>
+            </div>
+
+            <div class="row" data-aos="fade-up">
+                <div class="col-lg-12">
+                    <div class="info-box mb-4">
+                        <i class='bx bxs-user-detail'></i>
+                        <h3>Funcionário Atual</h3>
+                        <p><b>Nome:</b>  @Model.Nome &emsp;</p>
+                        <p><b>Nif:</b>  @Model.Nif &emsp;</p>
+                        <p><b>Contacto:</b>  @Model.Contacto &emsp;</p>
+                        <p><b>Nr Funcionário:</b>  @Model.NrFuncionario &emsp;</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" data-aos="fade-up">
+
+                <div class="col-lg-12">
+                    <form method="post" action="/Funcionario/Editar">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="Nome" class="form-control" placeholder="Nome" value="@Model.Nome" required />
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="text" name="Nif" class="form-control" placeholder="Nif" value="@Model.Nif" required/>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="text" name="Contacto" class="form-control" placeholder="Contacto" value="@Model.Contacto" required/>
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="text" name="NrFuncionario" class="form-control" placeholder="NrFuncionario" value="@Model.NrFuncionario" required/>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <input type="submit" name="enviar" value="Registar Edição" style="background: #576880; border: 0; padding: 10px 24px; color: #fff; transition: 0.7s;" />
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+</section><!-- End Contact Section -->
+
+</main><!-- End #main -->

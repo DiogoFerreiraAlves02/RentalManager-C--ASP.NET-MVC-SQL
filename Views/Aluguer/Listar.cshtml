@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "Listagem de Alugueres";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Alugueres</span>
+                <h2>Alugueres</h2>
+            </div>
+            @{ var listaProdutos = ViewBag.listaProdutos; var listaClientes = ViewBag.listaClientes; var listaFuncionarios = ViewBag.listaFuncionarios;}
+            <div class="row">
+                @{ var listaAlugueres = @Model;
+                    foreach (var aluguer in listaAlugueres) {
+                        <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="fade-up">
+                            <div class="icon-box">
+                                <div class="icon"><i class='bx bx-purchase-tag-alt'></i></div>
+                                <h4><a href="/Aluguer/Consultar/@aluguer.Id">
+                                    Cliente: @aluguer.Cliente.Nome
+
+                                </a></h4>
+                                <p>
+                                    Funcionário: @aluguer.Funcionario.Nome
+                                </p>
+                                <p>
+                                    Produto: @aluguer.Produto.Designacao
+                                </p>
+                                <p>Preço Total: @aluguer.PrecoTotal €</p>
+                                <p>Data Aluguer: @aluguer.DataAluguer.ToString("yyyy-MM-dd") </p>
+                                @{
+                                    if (aluguer.DataLimite < DateTime.Today) {
+                                        <p style="color : red;">Data Limite: @aluguer.DataLimite.ToString("yyyy-MM-dd")</p>
+                                    }
+                                    else if(aluguer.DataLimite == DateTime.Today){
+                                        <p style="color : darkorange;">Data Limite: @aluguer.DataLimite.ToString("yyyy-MM-dd")</p>
+                                    }
+                                    else if (aluguer.DataLimite.AddDays(-1) == DateTime.Today) {
+                                        <p style="color : yellow;">Data Limite: @aluguer.DataLimite.ToString("yyyy-MM-dd")</p>
+                                    }
+                                    else {
+                                        <p style="color : green;">Data Limite: @aluguer.DataLimite.ToString("yyyy-MM-dd")</p>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+    </section><!-- End Services Section -->
+
+</main><!-- End #main -->

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Consulta de Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+        <div class="row gy-12">
+
+            <div class="col-lg-12">
+                <div class="portfolio-info">
+                    <h3>Informação do Cliente&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bxs-user'></i></h3>
+                    <ul>
+                        <li><strong>Nome</strong>: @Model.Nome</li>
+                        <li><strong>Nif</strong>: @Model.Nif</li>
+                        <li><strong>Contacto</strong>: @Model.Contacto</li>
+                        <li><strong>Morada</strong>: @Model.Morada</li>
+                    </ul>
+                </div>
+                <br><br>
+                <div class="text-center">
+                    <form action="/Cliente/Editar/@Model.Id">
+                        <input type="submit" name="editarCliente" value="Editar Cliente" style="background: #576880; border: 0; padding: 10px 24px; color: #fff; transition: 0.7s;" />
+                    </form><br>
+                    <form action="/Cliente/Eliminar/@Model.Id">
+                        <input type="submit" name="eliminarCliente" value="Eliminar Cliente" style="background: #576880; border: 0; padding: 10px 24px; color: #fff; transition: 0.7s;" />
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Details Section -->

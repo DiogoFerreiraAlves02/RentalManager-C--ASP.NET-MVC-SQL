@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewData["Title"] = "Edição de Aluguer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Editar Aluguer</span>
+                <h2>Editar Aluguer</h2>
+            </div>
+
+            <div class="row" data-aos="fade-up">
+                <div class="col-lg-12">
+                    <div class="info-box mb-4">
+                        <i class='bx bx-purchase-tag-alt'></i>
+                        <h3>Aluguer Atual</h3>
+                        <p><b>Cliente:</b>  @Model.Cliente.Nome &emsp; <b>Funcionário:</b>  @Model.Funcionario.Nome</p>
+                        <p><b>Produto:</b>  @Model.Produto.Designacao &emsp;</p>
+                        <p><b>Preço Diário:</b>  @Model.PrecoDiario &emsp; <b>Caução:</b>  @Model.Caucao</p>
+                        <p><b>Dias:</b>  @Model.Dias &emsp; <b>Data de Aluguer:</b>  @Model.DataAluguer.ToString("yyyy-MM-dd")</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" data-aos="fade-up">
+
+                <div class="col-lg-12">
+                    <form method="post" action="/Aluguer/Editar">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                @{var listaClientes = ViewBag.listaClientes;}
+                                <select name="Cliente.Id" class="form-control">
+                                    @foreach (var cliente in listaClientes) {
+                                        var optionSelected = "";
+                                        if (cliente.Id == Model.Cliente.Id) optionSelected = "selected";
+                                        <option value="@cliente.Id"@optionSelected>@cliente.Nome  |  @cliente.Morada</option>
+                                    }
+                                </select>
+
+
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                @{var listaFuncionarios = ViewBag.listaFuncionarios;}
+                                <select name="Funcionario.Id" class="form-control">
+                                    @foreach (var funcionario in listaFuncionarios) {
+                                        var optionSelected = "";
+                                        if (funcionario.Id == Model.Funcionario.Id) optionSelected = "selected";
+                                        <option value="@funcionario.Id" @optionSelected>@funcionario.Nome  |  @funcionario.NrFuncionario</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            @{var listaProdutos = ViewBag.listaProdutos;}
+                            <select name="Produto.Id" class="form-control">
+                                @foreach (var produto in listaProdutos) {
+                                    var optionSelected = "";
+                                    if (produto.Id == Model.Produto.Id) optionSelected = "selected";
+                                    <option value="@produto.Id" @optionSelected>@produto.Designacao</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="PrecoDiario" class="form-control" id="PrecoDiario" placeholder="Preço Diário" required value="@Model.PrecoDiario" />
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="text" class="form-control" name="Caucao" id="Caucao" placeholder="Caução" required value="@Model.Caucao" />
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+                                <input type="number" name="Dias" class="form-control" id="Dias" placeholder="Dias de Aluguer" step="1" min="0" required value="@Model.Dias" />
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="date" class="form-control" name="DataAluguer" id="DataAluguer" placeholder="Data do Aluguer" required value="@Model.DataAluguer.ToString("yyyy-MM-dd")" />
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            @{var listaEstados = ViewBag.listaEstados;}
+                            <select name="Estado" class="form-control">
+                                @foreach (var estado in listaEstados) {
+                                    var optionSelected = "";
+                                    if ((int)estado.Id == (int)Model.Estado) optionSelected = "selected";
+                                    <option value="@estado.Id" @optionSelected>@estado.Designacao</option>
+                                }
+                            </select>
+                        </div>
+
+                        <br />
+                        <div class="text-center">
+                            <input type="submit" name="enviar" value="Registar Edição" style="background: #576880; border: 0; padding: 10px 24px; color: #fff; transition: 0.7s;" />
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+    </section>
+
+</main><!-- End #main -->

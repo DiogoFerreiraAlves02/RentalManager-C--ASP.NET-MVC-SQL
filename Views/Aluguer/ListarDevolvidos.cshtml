@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "ListarDevolvidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Alugueres Finalizados</span>
+                <h2>Alugueres Finalizados</h2><br />
+                @{ var listaAlugueres = @Model; }
+                @{ decimal total = 0; }
+                    @foreach (var aluguer in listaAlugueres) {
+                        total = total + aluguer.PrecoTotal; 
+                    }
+
+                <h4>Total dos Alugueres Finalizados @total.ToString("0.00") €</h4>
+                @{ var media = total/listaAlugueres.Count;} 
+                <h4>Média de Valor por Aluguer @media.ToString("0.00") €</h4>
+            </div>
+            @{ var listaProdutos = ViewBag.listaProdutos; var listaClientes = ViewBag.listaClientes; var listaFuncionarios = ViewBag.listaFuncionarios;}
+            <div class="row">
+                @{ foreach (var aluguer in listaAlugueres) {
+                        <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="fade-up">
+                            <div class="icon-box">
+                                <div class="icon"><i class='bx bx-purchase-tag-alt'></i></div>
+                                <h4>
+                                    <a href="/Aluguer/Consultar/@aluguer.Id">
+                                        Cliente: @aluguer.Cliente.Nome
+
+                                    </a>
+                                </h4>
+                                <p>
+                                    Funcionário: @aluguer.Funcionario.Nome
+                                </p>
+                                <p>
+                                    Produto: @aluguer.Produto.Designacao
+                                </p>
+                                <p>Preço Total: @aluguer.PrecoTotal €</p>
+                                <p>Data Aluguer: @aluguer.DataAluguer.ToString("yyyy-MM-dd") </p>
+
+                                <p>Data Limite: @aluguer.DataLimite.ToString("yyyy-MM-dd")</p>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+    </section><!-- End Services Section -->
+
+</main><!-- End #main -->

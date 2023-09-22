@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Consulta de Aluguer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ var listaProdutos = ViewBag.listaProdutos; var listaClientes = ViewBag.listaClientes; var listaFuncionarios = ViewBag.listaFuncionarios;}
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+        <div class="row gy-12">
+
+            <div class="col-lg-12">
+                <div class="portfolio-info">
+                    <h3>Informação do Aluguer&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-purchase-tag-alt'></i></h3>
+                    <ul>
+
+                        <li>
+                            <strong>Cliente</strong>: @Model.Cliente.Nome
+                        </li>
+                        <li>
+                            <strong>Funcionario</strong>: @Model.Funcionario.Nome
+                        </li>
+                        <li>
+                            <strong>Produto</strong>: @Model.Produto.Designacao
+                        </li>
+                        <li><strong>Preço Diário</strong>: @Model.PrecoDiario €</li>
+                        <li><strong>Dias de Aluguer</strong>: @Model.Dias Dias</li>
+                        <li><strong>Preço Total</strong>: @Model.PrecoTotal €</li>
+                        <li><strong>Caução</strong>: @Model.Caucao €</li>
+                        <li><strong>Data do Aluguer</strong>: @Model.DataAluguer.ToString("yyyy-MM-dd")</li>
+                        <li><strong>Data Limite</strong>: @Model.DataLimite.ToString("yyyy-MM-dd")</li>
+                        <li><strong>Estado</strong>: @Model.Estado</li>
+                    </ul>
+                </div>
+                <br><br>
+                <div class="text-center">
+                    <form action="/Aluguer/Editar/@Model.Id">
+                        <input type="submit" name="editarCliente" value="Editar Aluguer" style="background: #576880; border: 0; padding: 10px 24px; color: #fff; transition: 0.7s;" />
+                    </form><br>
+                    <form action="/Aluguer/Eliminar/@Model.Id">
+                        <input type="submit" name="eliminarCliente" value="Eliminar Aluguer" style="background: #576880; border: 0; padding: 10px 24px; color: #fff; transition: 0.7s;" />
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Details Section -->

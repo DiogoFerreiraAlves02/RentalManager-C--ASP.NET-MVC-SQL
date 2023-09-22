@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Listagem de Produtos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Produtos</span>
+                <h2>Produtos</h2>
+            </div>
+            <div class="row">
+                @{ var listaProdutos = @Model;
+                    foreach (var produto in listaProdutos) {
+                        <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="fade-up">
+                            <div class="icon-box">
+                                <div class="icon"><i class='bx bxs-package'></i></div>
+                                <h4><a href="/Produto/Consultar/@produto.Id">@produto.Designacao</a></h4>
+                                @*<p>Propriedade - @produto.Id</p>
+                                <p>Método - @produto.getId()</p>*@
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+    </section><!-- End Services Section -->
+
+</main><!-- End #main -->
